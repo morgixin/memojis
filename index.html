@@ -10,8 +10,13 @@
 <body>
     <div class="container">
         <h2>JOGO DA MEMÓRIA</h2>
+        <div class="tries">
+            <p id="triesNum">0</p>
+            <p>tentativas</p>
+        </div>
         <div class="game"></div>
-        <button class="reset" onclick="window.location.reload()">RESET GAME</button>
+        <button class="start" id="start-game" onclick="play()">PLAY!</button>
+        <button class="reset" id="reset-game" onclick="window.location.reload()">RESET GAME</button>
     </div>
     <script src="./src/scripts/engine.js" defer></script>
 </body>
