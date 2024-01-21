@@ -56,6 +56,8 @@ function handleClick() {
 
 function checkMatch() {
     if (openCards[0].innerHTML === openCards[1].innerHTML) {
+        openCards[0].onclick = {};
+        openCards[1].onclick = {};
         openCards[0].classList.add("boxMatch");
         openCards[1].classList.add("boxMatch");
     } else {
