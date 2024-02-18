@@ -6,4 +6,4 @@ tarefas:
 
 - [ ] adicionar opção de trocar tema de emojis;
 - [x] tratar possibilidade de clicar na mesma carta 2x;
-- [ ] adicionar diferentes dificuldades (número de cartas).
+- [x] adicionar diferentes dificuldades (número de cartas).

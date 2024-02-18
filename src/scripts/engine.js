@@ -11,6 +11,18 @@ const emojis = [
     "😨",
     "👺",
     "👺",
+    "😎",
+    "😎",
+    "🤪",
+    "🤪",
+    "😳",
+    "😳",
+    "🥸",
+    "🥸",
+    "💀",
+    "💀",
+    "😍",
+    "😍"
 ];
 const animals = [
     "🐸",
@@ -29,13 +41,23 @@ const animals = [
 
 let openCards = [];
 
-let shuffleEmojis = emojis.sort(() => 
-    (Math.random() > 0.5 ? 2 : -1)
-);
+const numberCardsElement = document.getElementById("number-of-cards");
+let numberCards = 8;
+let shuffleEmojis = [];
+numberCardsElement.oninput = () => {
+    numberCards = numberCardsElement.value;
+    console.log(numberCards);
+}
 
-let shuffleAnimals = animals.sort(() => 
-    (Math.random() > 0.5 ? 2 : -1)
-);
+shuffleCards = () => {
+    shuffleEmojis = emojis.slice(0, numberCards).sort(() => 
+        (Math.random() > 0.5 ? 2 : -1)
+    );
+}
+
+// let shuffleAnimals = animals.sort(() => 
+//     (Math.random() > 0.5 ? 2 : -1)
+// );
 
 const state = {
     view: {
@@ -74,7 +96,7 @@ function checkMatch() {
 
     openCards = [];
 
-    if (document.querySelectorAll(".boxMatch").length === emojis.length) {
+    if (document.querySelectorAll(".boxMatch").length === shuffleEmojis.length) {
         let p = document.createElement('p');
         p.style.color = "#fff";
         p.innerHTML = 'Você venceu! Clique em "Reset Game" para jogar de novo!';
@@ -88,14 +110,17 @@ function checkMatch() {
 function play() {
     document.getElementById("start-game").style.display = "none";
     document.getElementById("reset-game").style.display = "block";
+    document.getElementsByClassName("number-cards")[0].style.display = "none";
 
     // gera área para disposição das cartas
     let gameSpace = document.getElementsByClassName('game')[0];
-    gameSpace.style.height = '400px';
+    // gameSpace.style.height = '400px';
     gameSpace.style.width = '430px';
 
+    shuffleCards();
     // inclui cada carta
-    for(let i = 0; i < emojis.length; i++) {
+    console.log(shuffleEmojis);
+    for(let i = 0; i < shuffleEmojis.length; i++) {
         let box = document.createElement("div");
         box.className = "item-shown";
         box.innerHTML = shuffleEmojis[i];
@@ -120,6 +145,7 @@ function addItemShownClass() {
 
 function enableResetBtn() {
     let resetBtn = document.getElementById('reset-game');
+    // let 
     resetBtn.style.display = "none";
 }
 

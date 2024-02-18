@@ -16,6 +16,10 @@
         </div>
         <div class="game"></div>
         <button class="start" id="start-game" onclick="play()">PLAY!</button>
+        <div class="number-cards">
+            <p>Número de cartas:</p>
+            <input type="number" name="number-of-cards" id="number-of-cards" default="12" step="4" min="8" max="20" value="8">
+        </div>
         <button class="reset" id="reset-game" onclick="window.location.reload()">RESET GAME</button>
     </div>
     <script src="./src/scripts/engine.js" defer></script>
