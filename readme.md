@@ -5,3 +5,4 @@ Jogo da memória baseado nas aulas de Desenvolvimento de Jogos em JavaScript da 
 tarefas:
 
 - [ ] adicionar opção de trocar tema de emojis;
+- [ ] tratar possibilidade de clicar na mesma carta 2x;
