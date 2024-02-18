@@ -55,14 +55,19 @@ function handleClick() {
 }
 
 function checkMatch() {
-    if (openCards[0].innerHTML === openCards[1].innerHTML) {
-        openCards[0].onclick = {};
-        openCards[1].onclick = {};
-        openCards[0].classList.add("boxMatch");
-        openCards[1].classList.add("boxMatch");
+    if (openCards[0].id === openCards[1].id) {
+        openCards.pop(); // caso o jogador selecione a mesma carta 2x
+        return;
     } else {
-        openCards[0].classList.remove("boxOpen");
-        openCards[1].classList.remove("boxOpen");
+        if (openCards[0].innerHTML === openCards[1].innerHTML) {
+            openCards[0].onclick = {};
+            openCards[1].onclick = {};
+            openCards[0].classList.add("boxMatch");
+            openCards[1].classList.add("boxMatch");
+        } else {
+            openCards[0].classList.remove("boxOpen");
+            openCards[1].classList.remove("boxOpen");
+        }
     }
 
     state.view.triesCount.innerHTML++;
@@ -94,6 +99,7 @@ function play() {
         let box = document.createElement("div");
         box.className = "item-shown";
         box.innerHTML = shuffleEmojis[i];
+        box.id = "box"+i;
         box.onclick = handleClick;
         gameSpace.appendChild(box);
     }
